@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .main-content {
+    @apply m-0 p-4 sm:ml-20 bg-pink-300 h-screen;
+  }
+  .nav-item {
+    @apply w-full;
+  }
+  .nav-link {
+    @apply flex items-center h-20 text-gray-50;
+  }
+}
+
+@layer utilities {
+  .transition-width {
+    transition: width 600ms ease;
+  }
+}
