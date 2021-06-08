@@ -1,11 +1,30 @@
-import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
 
 export default function App() {
   return (
-    <div class="flex items-center justify-center h-screen">
-      <div class="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
-        Centered Content
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/image">
+            <NavBar />
+            <h1>Image 🤳</h1>
+          </Route>
+          <Route path="/video">
+            <NavBar />
+            <h1>Video 🎥</h1>
+          </Route>
+          <Route path="/text">
+            <NavBar />
+            <h1>Text 🗒</h1>
+          </Route>
+          <Route path="/">
+            <NavBar />
+            <h1>Overview 🌴</h1>
+          </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
