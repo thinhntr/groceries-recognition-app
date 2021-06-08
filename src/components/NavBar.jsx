@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="fixed bg-gray-900 transition-width overflow-scroll bottom-0 w-screen h-20 sm:top-0 sm:w-20 sm:h-screen">
-      <ul className="flex sm:flex-col">
+    <nav className="group fixed bg-gray-900 transition-width overflow-auto sm:hover:w-64 bottom-0 w-screen h-20 sm:top-0 sm:w-20 sm:h-screen">
+      <ul className="flex sm:flex-col items-center h-full">
         <li className="nav-item">
           <Link to="/" className="nav-link">
             <svg

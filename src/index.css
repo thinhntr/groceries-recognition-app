@@ -4,18 +4,32 @@
 
 @layer components {
   .main-content {
-    @apply m-0 p-4 sm:ml-20 bg-pink-300 h-screen;
+    @apply m-0 p-4 sm:ml-20 bg-pink-300;
   }
   .nav-item {
     @apply w-full;
   }
   .nav-link {
-    @apply flex items-center h-20 text-gray-50;
+    @apply flex justify-center sm:justify-start items-center h-20 text-gray-50 filter grayscale opacity-100 hover:filter hover:grayscale-0 hover:opacity-100;
+  }
+  .nav-link-text {
+    @apply hidden ml-4 sm:group-hover:inline;
+  }
+  .icon-color-primary {
+    @apply text-indigo-400;
+  }
+  .icon-color-secondary {
+    @apply text-indigo-100;
   }
 }
 
 @layer utilities {
   .transition-width {
     transition: width 600ms ease;
+  }
+  .nav-link-svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
   }
 }
