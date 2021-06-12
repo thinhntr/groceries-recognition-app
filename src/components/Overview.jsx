@@ -1,7 +1,7 @@
 import MainContainer from "./MainContainer";
 function Overview() {
   return (
-    <MainContainer className="main-content">
+    <MainContainer className="text-white">
       <h1>The Tech Bubble Is Bursting...</h1>
       <p>
         Cras sit amet massa porta, fermentum erat ac, feugiat nisi. Aenean

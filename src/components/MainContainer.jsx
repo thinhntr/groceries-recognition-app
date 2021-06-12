@@ -1,6 +1,6 @@
-export default function MainContainer({ children }) {
+export default function MainContainer({ className, children }) {
   return (
-    <div className="m-0 p-4 sm:ml-20 text-white bg-gray-900 min-h-screen">
+    <div className={`m-0 p-4 sm:ml-20 min-h-screen ${className}`}>
       {children}
     </div>
   );

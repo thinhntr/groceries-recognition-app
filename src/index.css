@@ -4,10 +4,10 @@
 
 @layer components {
   .icon-color-primary {
-    @apply text-indigo-400;
+    @apply text-cyan-400;
   }
   .icon-color-secondary {
-    @apply text-indigo-100;
+    @apply text-white;
   }
   .nav-link-svg {
     @apply min-w-2-rem w-8 my-0 mx-6;
