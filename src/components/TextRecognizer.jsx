@@ -1,8 +1,10 @@
+import MainContainer from "./MainContainer";
+
 function TextRecognizer() {
   return (
-    <div className="main-content">
+    <MainContainer>
       <h1>Text 🗒</h1>
-    </div>
+    </MainContainer>
   );
 }
 

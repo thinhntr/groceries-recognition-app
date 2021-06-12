@@ -1,32 +1,35 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
-import Overview from "./components/Overview";
-import ImageRecognizer from "./components/ImageRecognizer";
-import VideoRecognizer from "./components/VideoRecognizer";
-import TextRecognizer from "./components/TextRecognizer";
 import React from "react";
+
+import routes from "./routes";
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/image">
-          <NavBar />
-          <ImageRecognizer />
+        {routes.map((route, index) => (
+          <Route path={route[1]}>
+            <NavBar items={routes} activeIndex={index} />
+            {route[2]}
+          </Route>
+        ))}
+        {/* <Route path="/image">
+          <NavBar activeIndex={1} />
         </Route>
         <Route path="/video">
-          <NavBar />
+          <NavBar activeIndex={2} />
           <VideoRecognizer />
         </Route>
         <Route path="/text">
-          <NavBar />
+          <NavBar activeIndex={3} />
           <TextRecognizer />
         </Route>
         <Route path="/">
-          <NavBar />
+          <NavBar activeIndex={0} />
           <Overview />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   );

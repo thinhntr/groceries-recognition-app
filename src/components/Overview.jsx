@@ -1,6 +1,7 @@
+import MainContainer from "./MainContainer";
 function Overview() {
   return (
-    <div className="main-content">
+    <MainContainer className="main-content">
       <h1>The Tech Bubble Is Bursting...</h1>
       <p>
         Cras sit amet massa porta, fermentum erat ac, feugiat nisi. Aenean
@@ -165,7 +166,7 @@ function Overview() {
         eu, eleifend a libero. Mauris ac magna nec urna pellentesque vestibulum
         eget vel magna. Nunc sit amet tempus dolor, ut tincidunt lectus.
       </p>
-    </div>
+    </MainContainer>
   );
 }
 

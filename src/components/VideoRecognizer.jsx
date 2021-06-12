@@ -1,8 +1,10 @@
+import MainContainer from "./MainContainer";
+
 function VideoRecognizer() {
   return (
-    <div className="main-content">
+    <MainContainer>
       <h1>Video 🎥</h1>
-    </div>
+    </MainContainer>
   );
 }
 
