@@ -9,7 +9,7 @@ const labels = require("./labels.json");
 function ImageRecognizer() {
   const [model, setModel] = useState(null);
   const [preview, setPreview] = useState("");
-  const [predictions, setPredictions] = useState([]);
+  const [predictions, setPredictions] = useState();
 
   useEffect(() => {
     tf.loadLayersModel(
@@ -43,22 +43,22 @@ function ImageRecognizer() {
   }
 
   return (
-    <MainContainer className="pt-16 flex flex-col items-center">
-      <div className="p-4 max-w-80-screen max-h-80-screen transform -rotate-6 rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
-        <div class="transform rotate-6 flex flex-col justify-center items-center">
+    <MainContainer className=" flex flex-col justify-center items-center">
+      <div className="p-4 transform -rotate-6 max-w-105-screen max-h-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
+        <div class="transform rotate-6 max-w-85-screen max-h-85-screen flex flex-col justify-center items-center">
           {model ? (
             <MagicDropZone
-              className="bg-white rounded-t-xl w-96 h-96 max-w-80-screen max-h-80-screen"
+              className="bg-white rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen"
               accept="image/jpeg, image/png, .jpg, .jpeg, .png"
               multiple={false}
               onDrop={onDrop}
             >
-              <div className="flex justify-center items-center w-96 h-96 max-w-80-screen max-h-80-screen">
+              <div className="flex justify-center items-center shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen">
                 {preview ? (
                   <img
                     alt="upload preview"
                     onLoad={onImageChange}
-                    className="rounded-t-xl w-96 h-96 max-w-80-screen max-h-80-screen object-cover"
+                    className="rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen object-cover"
                     src={preview}
                   />
                 ) : (
@@ -67,11 +67,11 @@ function ImageRecognizer() {
               </div>
             </MagicDropZone>
           ) : (
-            <div className="bg-white w-96 h-96 max-w-80-screen max-h-80-screen p-4 rounded-t-xl flex justify-center items-center">
+            <div className="bg-white shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen p-4 rounded-t-xl flex justify-center items-center">
               Loading model...
             </div>
           )}
-          <div className="bg-white rounded-b-xl p-4 w-96 max-w-80-screen">
+          <div className="bg-white rounded-b-xl shadow-xl p-4 w-96 max-w-85-screen">
             {predictions}
           </div>
         </div>

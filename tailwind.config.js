@@ -12,12 +12,12 @@ module.exports = {
         "2-rem": "2rem",
       },
       maxWidth: {
-        "80-screen": "80vw",
-        "90-screen": "90vw",
+        "85-screen": "85vw",
+        "105-screen": "105vw",
       },
       maxHeight: {
-        "80-screen": "80vh",
-        "90-screen": "90vh",
+        "85-screen": "85vw",
+        "105-screen": "105vw",
       },
       colors: {
         cyan: {
