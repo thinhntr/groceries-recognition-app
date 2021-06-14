@@ -77,7 +77,7 @@ function ImageRecognizer() {
 
   useEffect(() => {
     loadGraphModel(
-      "./image_model/thinh_mobilenetv2_image_baseline_web_model/model.json"
+      "https://groceries-recognition.web.app/image_model/thinh_mobilenetv2_image_baseline_web_model/model.json"
     ).then((loadedModel) => {
       setModel(loadedModel);
       console.log("Model loaded successfully");
@@ -91,13 +91,20 @@ function ImageRecognizer() {
 
   async function onImageChange(e) {
     const pixels = tf.browser.fromPixels(e.target);
-    const reshapedPixels = pixels.reshape([1, ...pixels.shape]);
-    const croppedPixels = tf.image.resizeBilinear(reshapedPixels, [224, 224]);
-    const predictIndex = model.predict(croppedPixels).argMax(-1).arraySync()[0];
-    // setPredictions(top3);
-    const result = labels[predictIndex];
+    const batch = pixels.expandDims();
+    const resized = tf.image.resizeBilinear(batch, [224, 224]);
+    const predict = model.predict(resized);
+    const indexTensor = predict.argMax(-1);
+    const index = indexTensor.arraySync()[0];
+    const result = labels[index];
     setPredictions(result);
     console.log(result);
+    pixels.dispose();
+    batch.dispose();
+    resized.dispose();
+    predict.dispose();
+    indexTensor.dispose();
+    console.log("onImageChange", tf.memory());
   }
 
   return (
