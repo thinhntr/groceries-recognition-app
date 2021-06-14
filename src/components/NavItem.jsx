@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function NavItem({ to, text, svg, isActive }) {
-  console.log(to, isActive);
   return (
     <li className="w-full">
       <Link
