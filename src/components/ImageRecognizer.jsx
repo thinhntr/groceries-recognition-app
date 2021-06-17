@@ -1,9 +1,10 @@
 import MainContainer from "./MainContainer";
-import { useState, useEffect } from "react";
+import { useImageModel } from "../ImageModelProvider";
+
+import { useState } from "react";
 import MagicDropZone from "react-magic-dropzone";
 
 import * as tf from "@tensorflow/tfjs";
-import { loadGraphModel } from "@tensorflow/tfjs-converter";
 
 const labels = [
   "ba\u0301nh ga\u0323o An",
@@ -71,19 +72,9 @@ const labels = [
 ];
 
 function ImageRecognizer() {
-  const [model, setModel] = useState(null);
+  const imageModel = useImageModel();
   const [preview, setPreview] = useState("");
   const [predictions, setPredictions] = useState();
-
-  useEffect(() => {
-    loadGraphModel(
-      "https://groceries-recognition.web.app/image_model/thinh_mobilenetv2_image_baseline_web_model/model.json"
-    ).then((loadedModel) => {
-      setModel(loadedModel);
-      console.log("Model loaded successfully");
-      console.log("Loaded Model: ", loadedModel);
-    });
-  }, []);
 
   function onDrop(accepted, rejected, links) {
     setPreview(accepted[0].preview || links[0]);
@@ -93,7 +84,7 @@ function ImageRecognizer() {
     const pixels = tf.browser.fromPixels(e.target);
     const batch = pixels.expandDims();
     const resized = tf.image.resizeBilinear(batch, [224, 224]);
-    const predict = model.predict(resized);
+    const predict = imageModel.predict(resized);
     const indexTensor = predict.argMax(-1);
     const index = indexTensor.arraySync()[0];
     const result = labels[index];
@@ -111,7 +102,7 @@ function ImageRecognizer() {
     <MainContainer className=" flex flex-col justify-center items-center">
       <div className="p-4 transform -rotate-6 max-w-105-screen max-h-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
         <div className="transform rotate-6 max-w-85-screen max-h-85-screen flex flex-col justify-center items-center">
-          {model ? (
+          {imageModel ? (
             <MagicDropZone
               className="bg-white rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen"
               accept="image/jpeg, image/png, .jpg, .jpeg, .png"
