@@ -15,22 +15,17 @@ function ImageRecognizer() {
     setPreview(accepted[0].preview || links[0]);
   }
 
-  async function onImageChange(e) {
-    const pixels = tf.browser.fromPixels(e.target);
-    const batch = pixels.expandDims();
-    const resized = tf.image.resizeBilinear(batch, [224, 224]);
-    const predict = imageModel.predict(resized);
-    const indexTensor = predict.argMax(-1);
-    const index = indexTensor.arraySync()[0];
-    const result = labels[index];
-    setPrediction(result);
-    console.log(result);
-    pixels.dispose();
-    batch.dispose();
-    resized.dispose();
-    predict.dispose();
-    indexTensor.dispose();
-    console.log("onImageChange", tf.memory());
+  function onImageChange(e) {
+    tf.tidy(() => {
+      const pixels = tf.browser.fromPixels(e.target);
+      const batch = pixels.expandDims();
+      const resized = tf.image.resizeBilinear(batch, [224, 224]);
+      const predict = imageModel.predict(resized);
+      const indexTensor = predict.argMax(-1);
+      const index = indexTensor.arraySync()[0];
+      const result = labels[index];
+      setPrediction(result);
+    });
   }
 
   return (
