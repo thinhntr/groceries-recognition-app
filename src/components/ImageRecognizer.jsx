@@ -99,35 +99,33 @@ function ImageRecognizer() {
   }
 
   return (
-    <MainContainer className=" flex flex-col justify-center items-center">
+    <MainContainer className=" flex-center flex-col">
       <div className="p-4 transform -rotate-6 max-w-105-screen max-h-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
-        <div className="transform rotate-6 max-w-85-screen max-h-85-screen flex flex-col justify-center items-center">
+        <div className="transform rotate-6 square-max-size flex-center flex-col">
           {imageModel ? (
             <MagicDropZone
-              className="bg-white rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen"
+              className="white-square"
               accept="image/jpeg, image/png, .jpg, .jpeg, .png"
               multiple={false}
               onDrop={onDrop}
             >
-              <div className="flex justify-center items-center shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen">
-                {preview ? (
-                  <img
-                    alt="upload preview"
-                    onLoad={onImageChange}
-                    className="rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen object-cover"
-                    src={preview}
-                  />
-                ) : (
-                  <div>Choose or drop a file.</div>
-                )}
-              </div>
+              {preview ? (
+                <img
+                  alt="upload preview"
+                  onLoad={onImageChange}
+                  className="white-square object-cover"
+                  src={preview}
+                />
+              ) : (
+                <div className="white-square flex-center">
+                  Choose or drop a file.
+                </div>
+              )}
             </MagicDropZone>
           ) : (
-            <div className="bg-white shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen p-4 rounded-t-xl flex justify-center items-center">
-              Loading model...
-            </div>
+            <div className="white-square p-4 flex-center">Loading model...</div>
           )}
-          <div className="bg-white rounded-b-xl shadow-xl p-4 w-96 max-w-85-screen">
+          <div className="bg-white rounded-b-xl shadow-xl w-96 max-w-85-screen p-4">
             {predictions}
           </div>
         </div>
