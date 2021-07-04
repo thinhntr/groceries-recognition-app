@@ -9,7 +9,7 @@ import * as tf from "@tensorflow/tfjs";
 function ImageRecognizer() {
   const [imageModel, labels] = useImageModel();
   const [preview, setPreview] = useState("");
-  const [predictions, setPredictions] = useState();
+  const [prediction, setPrediction] = useState();
 
   function onDrop(accepted, rejected, links) {
     setPreview(accepted[0].preview || links[0]);
@@ -23,7 +23,7 @@ function ImageRecognizer() {
     const indexTensor = predict.argMax(-1);
     const index = indexTensor.arraySync()[0];
     const result = labels[index];
-    setPredictions(result);
+    setPrediction(result);
     console.log(result);
     pixels.dispose();
     batch.dispose();
@@ -61,7 +61,7 @@ function ImageRecognizer() {
             <div className="white-square p-4 flex-center">Loading model...</div>
           )}
           <div className="bg-white rounded-b-xl shadow-xl w-96 max-w-85-screen p-4">
-            {predictions}
+            {prediction}
           </div>
         </div>
       </div>
