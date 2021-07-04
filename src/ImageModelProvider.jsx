@@ -14,7 +14,7 @@ export default function ImageModelProvider({ children }) {
 
   useEffect(() => {
     loadGraphModel(
-      "https://groceries-recognition.web.app/image_model/thinh_mobilenetv2_image_baseline_web_model/model.json"
+      "https://modelhosting.web.app/thinh_imagemodel_3/model.json"
     ).then((loadedModel) => {
       setImageModel(loadedModel);
       console.log("Model loaded successfully");
