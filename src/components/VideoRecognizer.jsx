@@ -61,7 +61,7 @@ function VideoRecognizer() {
                 : ""}
             </div>
           )}
-          <div className="bg-white rounded-b-xl shadow-xl w-96 h-14 max-w-85-screen p-4">
+          <div className="text-white text-lg font-semibold text-center bg-black bg-opacity-25 backdrop-filter backdrop-blur-md rounded-b-xl shadow-xl w-96 h-14 max-w-85-screen p-4">
             {prediction}
           </div>
           <Switch
