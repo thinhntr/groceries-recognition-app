@@ -42,9 +42,9 @@ function VideoRecognizer() {
   }, [imageModel, labels]);
 
   return (
-    <MainContainer className="flex-center">
-      <div className="m-4 p-4 max-w-screen-md transform rotate-6 rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
-        <div className="max-w-screen-sm transform -rotate-6 rounded-xl p-8 flex-center flex-col">
+    <MainContainer className="flex-center overflow-hidden">
+      <div className="p-4 transform rotate-6 max-w-105-screen max-h-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
+        <div className="transform -rotate-6 rounded-xl flex-center flex-col">
           {imageModel && enabled ? (
             <Webcam
               ref={webcamRef}
