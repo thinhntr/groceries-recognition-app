@@ -45,7 +45,7 @@ function VideoRecognizer() {
     <MainContainer className="flex-center">
       <div className="m-4 p-4 max-w-screen-md transform rotate-6 rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
         <div className="max-w-screen-sm transform -rotate-6 rounded-xl p-8 flex-center flex-col">
-          {enabled ? (
+          {imageModel && enabled ? (
             <Webcam
               ref={webcamRef}
               className="white-square bg-transparent"
@@ -53,7 +53,13 @@ function VideoRecognizer() {
               videoConstraints={videoConstraints}
             />
           ) : (
-            <div className="white-square bg-gray-200"></div>
+            <div className="white-square p-4 flex-center">
+              {!imageModel
+                ? "Loading model..."
+                : !enabled
+                ? "Turn on the camera"
+                : ""}
+            </div>
           )}
           <div className="bg-white rounded-b-xl shadow-xl w-96 h-14 max-w-85-screen p-4">
             {prediction}
