@@ -55,7 +55,7 @@ function ImageRecognizer() {
           ) : (
             <div className="white-square p-4 flex-center">Loading model...</div>
           )}
-          <div className="bg-white rounded-b-xl shadow-xl w-96 max-w-85-screen p-4">
+          <div className="bg-white rounded-b-xl shadow-xl w-96 h-14 max-w-85-screen p-4">
             {prediction}
           </div>
         </div>
