@@ -2,7 +2,7 @@
 
 ## Live demo 
 
-https://groceries-recognition.web.app
+👉 https://groceries-recognition.web.app 👈
 
 ## Development
 
