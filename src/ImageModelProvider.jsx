@@ -18,6 +18,7 @@ export default function ImageModelProvider({ children }) {
   useEffect(() => {
     tf.loadGraphModel(url + version + "/model.json").then((loadedModel) => {
       setImageModel(loadedModel);
+      tf.tidy(() => loadedModel.predict(tf.zeros([1, 224, 224, 3]))); // Warm up the model
     });
 
     fetch(url + version + "/labels.json")
