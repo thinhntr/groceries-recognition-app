@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Overview from "./components/Overview";
 import ImageRecognizer from "./components/ImageRecognizer";
 import VideoRecognizer from "./components/VideoRecognizer";
-import TextRecognizer from "./components/TextRecognizer";
 import NavBar from "./components/NavBar";
 import React from "react";
 
@@ -24,10 +23,6 @@ export default function App() {
         <Route path="/video">
           <NavBar activeIndex={2} />
           <VideoRecognizer />
-        </Route>
-        <Route path="/text">
-          <NavBar activeIndex={3} />
-          <TextRecognizer />
         </Route>
         <Route path="/">
           <NavBar activeIndex={0} />
