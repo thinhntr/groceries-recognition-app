@@ -26,4 +26,11 @@
   .flex-center {
     @apply flex justify-center items-center;
   }
+
+  .overview-table-row {
+    @apply flex justify-between rounded-md bg-gradient-to-br hover:from-green-400 hover:to-blue-500;
+  }
+  .overview-table-cell {
+    @apply py-3 px-5;
+  }
 }
