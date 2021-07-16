@@ -12,16 +12,20 @@ export default function ImageModelProvider({ children }) {
   const [imageModel, setImageModel] = useState(null);
   const [labels, setLabels] = useState(null);
 
-  const url = "https://modelhosting.web.app/";
-  const version = "thinh_imagemodel_2";
+  const model_url =
+    "https://modelhosting.web.app/small_imagemodel_4/model.json"; // Change this url to yours
+  const label_url =
+    "https://modelhosting.web.app/small_imagemodel_4/labels.json"; // Change this url to yours
 
   useEffect(() => {
-    tf.loadGraphModel(url + version + "/model.json").then((loadedModel) => {
+    // Load tensorflow model
+    tf.loadGraphModel(model_url).then((loadedModel) => {
       setImageModel(loadedModel);
       tf.tidy(() => loadedModel.predict(tf.zeros([1, 224, 224, 3]))); // Warm up the model
     });
 
-    fetch(url + version + "/labels.json")
+    // Load labels
+    fetch(label_url)
       .then((response) => response.json())
       .then((data) => {
         setLabels(data);
