@@ -5,6 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     minWidth: (theme) => ({ 8: theme("spacing.8"), ...defaultTheme.minWidth }),
+    minHeight: (theme) => ({
+      14: theme("spacing.14"),
+      ...defaultTheme.minHeight,
+    }),
     extend: {
       transitionProperty: {
         width: "width",

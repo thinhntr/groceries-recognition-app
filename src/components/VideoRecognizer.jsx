@@ -43,6 +43,7 @@ function VideoRecognizer() {
 
   return (
     <MainContainer>
+      <div className="p-4 flex-shrink transform rotate-6 max-w-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
         <div className="transform -rotate-6 rounded-xl flex-center flex-col">
           {imageModel && enabled ? (
             <Webcam
@@ -60,24 +61,26 @@ function VideoRecognizer() {
                 : ""}
             </div>
           )}
-          <div className="text-white text-lg font-semibold text-center bg-black bg-opacity-25 backdrop-filter backdrop-blur-md rounded-b-xl shadow-xl w-96 h-14 max-w-85-screen p-4">
+          <div className="text-white text-lg text-center bg-black bg-opacity-25 backdrop-filter backdrop-blur-md rounded-b-xl shadow-xl w-96 min-h-14 max-w-85-screen p-4">
             {prediction}
           </div>
+      </div>
+      </div>
           <Switch
             checked={enabled}
             onChange={setEnabled}
             className={`${
-              enabled ? "bg-blue-600" : "bg-gray-200"
-            } relative inline-flex items-center h-6 rounded-full w-11 m-2`}
+          enabled
+            ? "bg-gradient-to-r from-green-500 to-blue-600"
+            : "bg-gray-200"
+        } relative inline-flex items-center h-10 rounded-full w-20 m-2`}
           >
             <span
               className={`${
-                enabled ? "translate-x-6" : "translate-x-1"
-              } inline-block w-4 h-4 transform bg-white rounded-full`}
+            enabled ? "translate-x-12" : "translate-x-1"
+          } inline-block w-7 h-7 transform bg-white rounded-full`}
             />
           </Switch>
-        </div>
-      </div>
     </MainContainer>
   );
 }
