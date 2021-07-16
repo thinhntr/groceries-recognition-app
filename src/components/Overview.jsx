@@ -1,7 +1,7 @@
 import MainContainer from "./MainContainer";
 function Overview() {
   return (
-    <MainContainer className="text-white flex-center flex-col">
+    <MainContainer>
       <h1 className="text-2xl">Nhận diện hàng tạp hóa</h1>
       <h2 className="font-bold">About us</h2>
       <table>
