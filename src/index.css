@@ -12,7 +12,7 @@
   }
 
   .nav-link-svg {
-    @apply min-w-2-rem w-8 my-0 mx-6;
+    @apply min-w-8 w-8 my-0 mx-6;
   }
 
   .square-max-size {
