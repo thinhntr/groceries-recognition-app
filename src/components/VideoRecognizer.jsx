@@ -65,23 +65,23 @@ function VideoRecognizer() {
           <div className="text-white text-lg text-center bg-black bg-opacity-25 backdrop-filter backdrop-blur-md rounded-b-xl shadow-xl w-96 min-h-14 max-w-85-screen p-4">
             {prediction}
           </div>
+        </div>
       </div>
-      </div>
-          <Switch
-            checked={enabled}
-            onChange={setEnabled}
-            className={`${
+      <Switch
+        checked={enabled}
+        onChange={setEnabled}
+        className={`${
           enabled
             ? "bg-gradient-to-r from-green-500 to-blue-600"
             : "bg-gray-200"
         } relative inline-flex items-center h-10 rounded-full w-20 m-2`}
-          >
-            <span
-              className={`${
+      >
+        <span
+          className={`${
             enabled ? "translate-x-12" : "translate-x-1"
           } inline-block w-7 h-7 transform bg-white rounded-full`}
-            />
-          </Switch>
+        />
+      </Switch>
     </MainContainer>
   );
 }
