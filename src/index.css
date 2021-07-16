@@ -15,12 +15,8 @@
     @apply min-w-8 w-8 my-0 mx-6;
   }
 
-  .square-max-size {
-    @apply max-w-85-screen max-h-85-screen;
-  }
-
   .white-square {
-    @apply bg-white rounded-t-xl shadow-xl w-96 h-96 square-max-size;
+    @apply bg-white rounded-t-xl shadow-xl w-96 h-96 max-w-85-screen max-h-85-screen;
   }
 
   .flex-center {

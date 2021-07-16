@@ -31,7 +31,7 @@ function ImageRecognizer() {
   return (
     <MainContainer>
       <div className="p-4 transform -rotate-6 max-w-105-screen max-h-105-screen rounded-xl bg-gradient-to-r from-cyan-400 to-light-blue-500">
-        <div className="transform rotate-6 square-max-size flex-center flex-col">
+        <div className="transform rotate-6 flex-center flex-col">
           {imageModel ? (
             <MagicDropZone
               className="white-square"
