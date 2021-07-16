@@ -15,8 +15,8 @@ function VideoRecognizer() {
   const [prediction, setPrediction] = useState("");
 
   const videoConstraints = {
-    width: 224,
-    height: 224,
+    width: 1000,
+    height: 1000,
     facingMode: "environment",
   };
 
@@ -31,7 +31,8 @@ function VideoRecognizer() {
       }
       tf.tidy(() => {
         const pixels = tf.browser.fromPixels(webcamRef.current.video);
-        const batch = pixels.expandDims();
+        const resized = tf.image.resizeBilinear(pixels, [224, 224]);
+        const batch = resized.expandDims();
         const fbatch = tf.cast(batch, "float32");
         const predict = imageModel.predict(fbatch);
         const index = predict.argMax(-1).dataSync()[0];
