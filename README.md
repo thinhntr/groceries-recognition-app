@@ -4,6 +4,14 @@
 
 👉 https://groceries-recognition.web.app 👈
 
+## Screenshots
+
+### Homepage
+![](https://imgur.com/ZyC3xw2.png)
+
+### Classify grocery
+![](https://imgur.com/580cSDh.png)
+
 ## Development
 
 1. Install NodeJS from here https://nodejs.org
